@@ -1,7 +1,7 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 	
-config SHIELD_PUNI
-	def_bool $(shields_list_contains,puni)
+config SHIELD_AK3
+	def_bool $(shields_list_contains,ak3)
 
 
