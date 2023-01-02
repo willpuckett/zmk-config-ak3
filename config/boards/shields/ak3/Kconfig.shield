@@ -1,0 +1,10 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+	
+
+config SHIELD_AK3
+	def_bool $(shields_list_contains,ak3)
+
+config SHIELD_RETROFIT
+	def_bool $(shields_list_contains,retrofit)
+

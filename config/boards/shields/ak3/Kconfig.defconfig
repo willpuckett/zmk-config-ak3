@@ -7,17 +7,16 @@ config ZMK_BLE
 config ZMK_USB
 	default y
 
+if SHIELD_AK3
+
+config ZMK_KEYBOARD_NAME
+	default "ak3"
+
+endif
+
 if SHIELD_RETROFIT
 
 config ZMK_KEYBOARD_NAME
 	default "retrofit"
-
-endif
-
-
-if SHIELD_PIANO
-
-config ZMK_KEYBOARD_NAME
-	default "piano"
 
 endif
