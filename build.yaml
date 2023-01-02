@@ -15,4 +15,4 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: piano
+    shield: ak3
