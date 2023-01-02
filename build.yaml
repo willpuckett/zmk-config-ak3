@@ -15,6 +15,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: ak3
+    shield: retrofit
   - board: nice_nano_v2
     shield: piano
