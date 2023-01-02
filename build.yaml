@@ -11,10 +11,10 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
-#    shield: ak3
 ---
 include:
   - board: nice_nano_v2
     shield: ak3
   - board: nice_nano_v2
-    shield: piano
+    shield: retrofit
+    

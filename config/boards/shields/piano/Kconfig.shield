@@ -5,6 +5,6 @@ config SHIELD_AK3
 	def_bool $(shields_list_contains,ak3)
 
 
-config SHIELD_PIANO
-	def_bool $(shields_list_contains,piano)
+config SHIELD_RETROFIT
+	def_bool $(shields_list_contains,retrofit)
 
