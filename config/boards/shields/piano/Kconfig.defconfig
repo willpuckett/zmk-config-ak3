@@ -15,9 +15,9 @@ config ZMK_KEYBOARD_NAME
 endif
 
 
-if SHIELD_RETROFIT
+if SHIELD_PIANO
 
 config ZMK_KEYBOARD_NAME
-	default "ak3-retrofit"
+	default "piano"
 
 endif
