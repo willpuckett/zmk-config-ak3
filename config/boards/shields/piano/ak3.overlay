@@ -4,4 +4,4 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "puni.dtsi"
+#include "ak3.dtsi"
