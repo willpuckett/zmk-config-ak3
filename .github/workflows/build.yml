@@ -45,7 +45,7 @@ jobs:
           echo ::set-output name=artifact-name::${ARTIFACT_NAME}
           echo ::set-output name=display-name::${DISPLAY_NAME}
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Cache west modules
         uses: actions/cache@v2
         env:
