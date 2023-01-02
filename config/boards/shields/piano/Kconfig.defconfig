@@ -13,3 +13,11 @@ config ZMK_KEYBOARD_NAME
 	default "ak3"
 
 endif
+
+
+if SHIELD_PIANO
+
+config ZMK_KEYBOARD_NAME
+	default "piano"
+
+endif
