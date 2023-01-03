@@ -1,7 +1,3 @@
-#    - name: zmk
-#      remote: zmkfirmware
-#      revision: main
-#      import: app/west.yml
 manifest:
   remotes:
     - name: zmkfirmware
@@ -12,6 +8,10 @@ manifest:
    - name: zmk
      remote: benvallack
      revision: repeatrollfix-tapdance-macro-mouse-dongle
+     import: app/west.yml
+   - name: zmk
+     remote: zmkfirmware
+     revision: main
      import: app/west.yml
   self:
     path: config
