@@ -63,7 +63,7 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
             , <&gpio1 7 GPIO_ACTIVE_LOW> // Pin 16 
             , <&pro_micro 18 GPIO_ACTIVE_LOW> // Pin 7
             // , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 19 x
-            , <&swdio GPIO_ACTIVE_LOW> // Pin 19 
+            , <&swd GPIO_ACTIVE_LOW> // Pin 19 
             , <&pro_micro 15 GPIO_ACTIVE_LOW> // Pin 24
             ;
         // Pins 1,2,3,4,5,15,17,18 are GPIO Rows active-low, pull high
@@ -86,7 +86,7 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
 		label = "KSCAN";
 		input-gpios
 		// = <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 x
-		= <&swdclk (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 
+		= <&swc (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 
 		, <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 9
 		, <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 10
 		, <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 11
