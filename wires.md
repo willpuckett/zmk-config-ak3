@@ -45,3 +45,23 @@ SPI
 |P0.11|20||P1.11|5|
 |P1.04|10||P0.10|18|
 |P1.06|11||P0.09|17|
+
+
+
+&pro_micro_spi {
+    compatible = "nordic,nrf-spim";
+	status = "okay";
+	cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+    sck-pin = <22>;
+	mosi-pin = <24>;
+	shifter: 595@0 {
+		compatible = "zmk,gpio-595";
+		status = "okay";
+		gpio-controller;
+		spi-max-frequency = <200000>;
+		reg = <0>;
+		label = "4HC595";
+		#gpio-cells = <2>;
+		ngpios = <8>;
+    };
+};
