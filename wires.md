@@ -1,4 +1,4 @@
-# AK3 Prototyping Wiring
+# AK3 Prototyping Harness
 
 ## Now
 |Nice!NanoV2|Connector Wire||Nice!NanoV2|Connector Wire|
@@ -16,17 +16,18 @@
 |P1.04|10||P0.10|18|
 |P1.06|11||P0.09|17|
 
+
 SPI 
 
 - [x] SER MOSI P0.24
 - [x] SRCLK SCK P0.22
 - [x] RCLK (LATCH) P0.20 (doesn't really matter but convenient)
 
-1 move P0.22 to P0.24 
+    1 move P0.22 to P0.24 
 
-2 move P0.24 to P0.17
+    2 move P0.24 to P0.17
 
-3 Move P0.17 P0.22
+    3 Move P0.17 P0.22
 
 ## After
 
