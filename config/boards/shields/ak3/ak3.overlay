@@ -6,9 +6,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&i2c0 { status = "disabled"; };
-
-&pro_micro_spi {
+&spi0 {
 	status = "okay";
 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
     sck-pin = <22>;
