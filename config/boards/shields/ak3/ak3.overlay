@@ -6,6 +6,19 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
+&spi0 {
+	cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+	shifter: 595@0 {
+		compatible = "zmk,gpio-595";
+		status = "okay";
+		gpio-controller;
+		spi-max-frequency = <200000>;
+		reg = <0>;
+		label = "4HC595";
+		#gpio-cells = <2>;
+		ngpios = <8>;
+}
+
 / {
 
 	chosen {
@@ -51,31 +64,27 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
         diode-direction = "col2row";
         // Pins 7,13,14,16,19,20,21,22,23,24 are GPIO Columns
         col-gpios
-            = <&pro_micro 21 GPIO_ACTIVE_LOW> // Pin 20
-            // , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 21 x
-            , <&gpio1 1 GPIO_ACTIVE_LOW> // Pin 21
-            , <&pro_micro 10 GPIO_ACTIVE_LOW> // Pin 22
-            , <&pro_micro 14 GPIO_ACTIVE_LOW> // Pin 13
-            , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 14
-            // , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 23 x
-            , <&gpio1 2 GPIO_ACTIVE_LOW> // Pin 23 
-            // , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 16 x
-            , <&gpio1 7 GPIO_ACTIVE_LOW> // Pin 16 
-            , <&pro_micro 18 GPIO_ACTIVE_LOW> // Pin 7
-            // , <&pro_micro 16 GPIO_ACTIVE_LOW> // Pin 19 x
-            , <&swd GPIO_ACTIVE_LOW> // Pin 19 
-            , <&pro_micro 15 GPIO_ACTIVE_LOW> // Pin 24
+            = <&gpio0 11 GPIO_ACTIVE_LOW> // Pin 20
+            , <&shifter 0 GPIO_ACTIVE_LOW> // Pin 21
+            , <&shifter 5 GPIO_ACTIVE_LOW> // Pin 22
+            , <&shifter 7 GPIO_ACTIVE_LOW> // Pin 13
+            , <&shifter 6 GPIO_ACTIVE_LOW> // Pin 14
+            , <&shifter 2 GPIO_ACTIVE_LOW> // Pin 23 
+            , <&shifter 3 GPIO_ACTIVE_LOW> // Pin 16 
+            , <&gpio1 0 GPIO_ACTIVE_LOW> // Pin 7
+            , <&shifter 1 GPIO_ACTIVE_LOW> // Pin 19 
+            , <&shifter 4 GPIO_ACTIVE_LOW> // Pin 24
             ;
         // Pins 1,2,3,4,5,15,17,18 are GPIO Rows active-low, pull high
         row-gpios
-            = <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 18
-            , <&pro_micro 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 1
-            , <&pro_micro 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 2
-            , <&pro_micro 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 3
-            , <&pro_micro 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 4
-            , <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 5
-            , <&pro_micro 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 15
-            , <&pro_micro 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 17
+            = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 18
+            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 1
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 2
+            , <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 3
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 4
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 5
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 15
+            , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 17
             ;
     };
 
@@ -85,12 +94,11 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
         // Pins 8,9,10,11,12 are GPIO-direct pins active-low, pull high
 		label = "KSCAN";
 		input-gpios
-		// = <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 x
-		= <&swc (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 
-		, <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 9
-		, <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 10
-		, <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 11
-		, <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 12
+		= <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 8 
+		, <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 9
+		, <&gpio1 04 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 10
+		, <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 11
+		, <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // Pin 12
 		;
     };	
 
