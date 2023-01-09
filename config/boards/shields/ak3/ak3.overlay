@@ -9,8 +9,12 @@
 &i2c0 { status = "disabled"; };
 
 &pro_micro_spi {
-    status = "okay";
+    compatible = "nordic,nrf-spim";
+	status = "okay";
 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+    sck-pin = <22>;
+	mosi-pin = <24>;
+    miso-pin = <&gpio1 1>;
 	shifter: 595@0 {
 		compatible = "zmk,gpio-595";
 		status = "okay";
