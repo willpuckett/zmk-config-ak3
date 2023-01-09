@@ -23,7 +23,8 @@
 		label = "4HC595";
 		#gpio-cells = <2>;
 		ngpios = <8>;
-}
+    };
+};
 
 / {
 	chosen {
