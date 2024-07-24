@@ -8,5 +8,5 @@ As I worked into this project, it seemed to make sense to build a new pcb that c
 
 This repo houses the firmware for the project. You can find it under [releases](https://github.com/willpuckett/zmk-config-ak3/releases/latest). 
 
-The pcb is [available on OSH lab](https://oshwlab.com/willpuckett/akiii).
+The pcb fabrication files are available in the pcb directory of this repository.
 
