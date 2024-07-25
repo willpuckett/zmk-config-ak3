@@ -17,4 +17,4 @@
 #     shield: ak3
 
 board: [ "nice_nano_v2" ]
-shield: [ "ak3-usb", "ak3-no-usb", "ak3-engrammer-usb", "ak3-engrammer-no-usb" ]
+shield: [ "ak3_usb", "ak3_no_usb", "ak3_engrammer_usb", "ak3_engrammer_no_usb" ]

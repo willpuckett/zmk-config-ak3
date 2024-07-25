@@ -1,8 +1,12 @@
 config SHIELD_AK3_USB
-	def_bool $(shields_list_contains,ak3-usb)
+	def_bool $(shields_list_contains,ak3_usb)
+
 config SHIELD_AK3_NO_USB
-	def_bool $(shields_list_contains,ak3-no-usb)
+    def_bool $(shields_list_contains,ak3_no_usb)
+
 config SHIELD_AK3_ENGRAMMER_USB
-	def_bool $(shields_list_contains,ak3-engrammer-usb)
+    def_bool $(shields_list_contains,ak3_engrammer_usb)
+
 config SHIELD_AK3_ENGRAMMER_NO_USB
-	def_bool $(shields_list_contains,ak3-engrammer-no-usb)
+    def_bool $(shields_list_contains,ak3_engrammer_no_usb)
+	
