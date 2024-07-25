@@ -6,14 +6,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-// #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
-	keymap {
-		compatible = "zmk,keymap";
-		
-		default_layer {
 //	M0487 Apple Standard Keyboard II
 //	                    +-------+
 //	                    | power |
@@ -30,15 +24,34 @@
 //	|ctrl|opt|comnd |                   | esc |lef|rig|dwn|up | |   0   | . |   |
 //	+---------------------------------------------------------+ +-------+---+---+
 //	
-			bindings = <
-	&gresc  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL  &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
-	&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT  &kp RBKT  &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
-	&kp CLCK  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI &kp SQT           &kp RET		&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
-	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH           &kp LSHFT		&kp KP_N1 &kp KP_N2 &kp KP_N3 
-	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN  &kp UP     &kp KP_N0		&kp KP_DOT &kp KP_ENTER
+
+/ {
+	keymap {
+		compatible = "zmk,keymap";
+		
+	#ifdef ENGRAMMER_BASE
+		engrammer_layer {
+			label = "ENGRAMMER";
+			bindings = < 
+	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
+	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+	&kp CLCK  &kp C  &kp I  &kp E  &kp A  &kp COMMA  &kp DOT  &kp H    &kp T    &kp S    &kp N  &kp Q    &kp RET		&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&kp LSHFT &kp G  &kp X  &kp J  &kp K  &kp MINUS  &kp FSLH   &kp R   &kp M  &kp F      &kp P        &kp LSHFT		&kp KP_N1 &kp KP_N2 &kp KP_N3 
+	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP         &kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
-
+	#else
+		qwerty_layer {
+			label = "QWERTY";
+			bindings = <
+	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
+	&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT  &kp RBKT   &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+	&kp CLCK  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI &kp SQT            &kp RET		&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH            &kp LSHFT		&kp KP_N1 &kp KP_N2 &kp KP_N3 
+	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP        &kp KP_N0 &kp KP_DOT &kp KP_ENTER
+			>;
+		};
+	#endif
 
 	};
 };

@@ -1,4 +1,25 @@
-if SHIELD_AK3
+if SHIELD_AK3_USB
 	config ZMK_KEYBOARD_NAME
 		default "ak3"
+	config ZMK_USB
+		default "y"
+elseif SHIELD_AK3_NO_USB
+	config ZMK_KEYBOARD_NAME
+		default "ak3"
+	config ZMK_USB
+		default "n"	
+elseif SHIELD_AK3_ENGRAMMER_USB
+	config ZMK_KEYBOARD_NAME
+		default "ak3"
+	config ENGRAMMER_BASE
+		default "1"
+	config ZMK_USB
+		default "y"	
+elseif SHIELD_AK3_ENGRAMMER_NO_USB
+	config ZMK_KEYBOARD_NAME
+		default "ak3"
+	config ENGRAMMER_BASE
+		default "1"
+	config ZMK_USB
+		default "n"	
 endif
