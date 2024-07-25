@@ -6,19 +6,19 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-sr: &spi0 {
+sr: &spi1 {
     compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
 	status = "okay";
-	cs-gpios = <&gpio1 00 GPIO_ACTIVE_LOW>;
+	cs-gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
 
 	shifter: 595@0 {
 		compatible = "zmk,gpio-595";
 		status = "okay";
 		gpio-controller;
-		spi-max-frequency = <1000000>;
+		spi-max-frequency = <400000>;
 		reg = <0>;
 		label = "4HC595";
 		#gpio-cells = <2>;
