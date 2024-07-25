@@ -10,3 +10,7 @@ This repo houses the firmware for the project. You can find it under [releases](
 
 The pcb fabrication files are available in the pcb directory of this repository.
 
+
+## Schematic
+
+![Schematic](/static/Schematic_AKIII_2024-07-25.svg)
