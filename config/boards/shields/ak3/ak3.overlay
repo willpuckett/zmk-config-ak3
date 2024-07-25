@@ -7,6 +7,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 &spi0 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
 	status = "okay";
 	cs-gpios = <&gpio1 00 GPIO_ACTIVE_LOW>;
 
