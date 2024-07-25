@@ -70,16 +70,16 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
         diode-direction = "col2row";
         // Pins 7,13,14,16,19,20,21,22,23,24 are GPIO Columns
         col-gpios
-            = <&shifter 7 GPIO_ACTIVE_LOW> 
-            , <&shifter 6 GPIO_ACTIVE_LOW>
+            = <&shifter 6 GPIO_ACTIVE_LOW> 
             , <&shifter 5 GPIO_ACTIVE_LOW>
+            , <&shifter 4 GPIO_ACTIVE_LOW>
             , <&gpio1 6 GPIO_ACTIVE_LOW>
+            , <&shifter 0 GPIO_ACTIVE_LOW>
+            , <&shifter 3 GPIO_ACTIVE_LOW> 
             , <&shifter 1 GPIO_ACTIVE_LOW>
-            , <&shifter 4 GPIO_ACTIVE_LOW> 
-            , <&shifter 2 GPIO_ACTIVE_LOW>
             , <&gpio0 2 GPIO_ACTIVE_LOW>
-            , <&shifter 8 GPIO_ACTIVE_LOW>
-            , <&shifter 3 GPIO_ACTIVE_LOW>
+            , <&shifter 7 GPIO_ACTIVE_LOW>
+            , <&shifter 2 GPIO_ACTIVE_LOW>
             ;
         // Pins 1,2,3,4,5,15,17,18 are GPIO Rows active-low, pull high
         row-gpios
