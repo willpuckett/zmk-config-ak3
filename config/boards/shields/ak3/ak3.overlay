@@ -18,7 +18,7 @@ sr: &spi1 {
 		compatible = "zmk,gpio-595";
 		status = "okay";
 		gpio-controller;
-		spi-max-frequency = <400000>;
+		spi-max-frequency = <200000>;
 		reg = <0>;
 		label = "4HC595";
 		#gpio-cells = <2>;
