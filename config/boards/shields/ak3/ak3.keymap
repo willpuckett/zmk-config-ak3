@@ -215,7 +215,7 @@
 	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH													        &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
 	&mqt NAV_L CAPS &hrml LCTRL C &hrml LALT I &hrml LGUI E &hrmls LSHFT A &kp COMMA &kp DOT &hrmrs LSHFT H &hrmr RGUI T &hrmr RALT S &hrmr RCTRL N &mqt NAV_L Q &kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
 	&kp G      &kp X  &kp J  &kp K  &kp MINUS     &af     &kp FSLH   &kp R   &kp M  &kp F      &kp P       &kp G															&kp KP_N1 &kp KP_N2 &kp KP_N3 
-	&kp GLOBE  œ &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       												    	&kp KP_N0 &kp KP_DOT &kp KP_ENTER
+	&kp GLOBE &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       												    	&kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
 	#else
