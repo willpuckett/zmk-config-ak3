@@ -6,10 +6,10 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-sr: &spi1 {
+sr: &pro_micro_spi {
     compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-0 = <&pro_micro_spi_default>;
+    pinctrl-1 = <&pro_micro_spi_sleep>;
     pinctrl-names = "default", "sleep";
 	status = "okay";
 	cs-gpios = <&pro_micro 6 GPIO_ACTIVE_LOW>;
