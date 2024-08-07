@@ -22,11 +22,11 @@ include:
     artifact-name: ak3_qwerty
   - board: nice_nano_v2
     shield: ak3
-    cmake-args: -DENGRAMMER_BASE=1
+    cmake-args: -DCONFIG_ENGRAMMER_BASE=y
     artifact-name: ak3_engrammer
   - board: nice_nano_v2
     shield: ak3
-    cmake-args: -DENGRAMMER_SHIFTED=1
+    cmake-args: -DCONFIG_ENGRAMMER_SHIFTED=y
     artifact-name: ak3_engrammer_shifted
 
 
