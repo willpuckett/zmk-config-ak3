@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // #define ENGRAMMER_BASE 1
 #define ENGRAMMER_SHIFTED 1
@@ -214,7 +215,7 @@
 	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH													        &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
 	&mqt NAV_L CAPS &hrml LCTRL C &hrml LALT I &hrml LGUI E &hrmls LSHFT A &kp COMMA &kp DOT &hrmrs LSHFT H &hrmr RGUI T &hrmr RALT S &hrmr RCTRL N &mqt NAV_L Q &kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
 	&kp G      &kp X  &kp J  &kp K  &kp MINUS     &af     &kp FSLH   &kp R   &kp M  &kp F      &kp P       &kp G															&kp KP_N1 &kp KP_N2 &kp KP_N3 
-	&kp GLOBE   &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       												    	&kp KP_N0 &kp KP_DOT &kp KP_ENTER
+	&kp GLOBE  œ &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       												    	&kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
 	#else
@@ -234,8 +235,8 @@
 			label = "NAV";
 			bindings = < 
 	&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11  &kp F12  &trans															            &trans &trans &trans &trans
-	&trans &kp EXCL &kp AT  &kp LBKT &kp RBKT  &trans   &trans  &kp HOME  &kp PG_DN &kp PG_UP  &kp END &trans &trans  &trans										            &trans &trans &trans &trans
-	&trans &hrml LCTRL LPAR &hrml LALT RPAR &hrml LGUI LBRC &hrmls LSHFT RBRC  &af &trans &hrmrs LSHFT LARW &hrmr RGUI DARW &hrmr RALT UARW &hrmr RCTRL RARW  &trans  &trans    &trans &trans &trans &trans
+	&trans &kp EXCL &kp AT  &kp LBKT &kp RBKT  &bt BT_CLR   &bt BT_NXT  &kp HOME  &kp PG_DN &kp PG_UP  &kp END &trans &trans  &trans										            &trans &trans &trans &trans
+	&trans &hrml LCTRL LPAR &hrml LALT RPAR &hrml LGUI LBRC &hrmls LSHFT RBRC  &af &out OUT_TOG &hrmrs LSHFT LARW &hrmr RGUI DARW &hrmr RALT UARW &hrmr RCTRL RARW  &trans  &trans    &trans &trans &trans &trans
 	&kp LT &kp SLASH  &kp EQUAL &kp GT &trans  &trans &kp LS(LG(Z))  &kp LG(Z)  &kp LG(X) &kp LG(C)  &kp LG(V)  &trans														    &trans &trans &trans 
 	&trans &trans &trans             &trans              &trans  &trans &trans &trans   &trans       												    	                    &trans &trans &trans
 			>;
