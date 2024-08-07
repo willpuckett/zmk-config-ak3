@@ -1,4 +1,14 @@
 if SHIELD_AK3
 	config ZMK_KEYBOARD_NAME
 		default "ak3"
+
+	if CONFIG_ENGRAMMER_BASE
+		add_definitions( -DCONFIG_ENGRAMMER_BASE )
+	endif
+	
+	if CONFIG_ENGRAMMER_SHIFTED
+		add_definitions( -DCONFIG_ENGRAMMER_SHIFTED )
+	endif
+
 endif
+

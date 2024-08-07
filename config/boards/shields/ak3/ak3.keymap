@@ -5,7 +5,6 @@
  */
 
 #include <behaviors.dtsi>
-#include <autoconf.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
@@ -26,7 +25,6 @@
 
     hrml: home_row_mod_left {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOME_ROW_MOD_LEFT";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <HM_TAPPING_TERM>;
@@ -37,7 +35,6 @@
 
     hrmr: home_row_mod_right {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOME_ROW_MOD_RIGHT";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <HM_TAPPING_TERM>;
@@ -48,7 +45,6 @@
 
     hrmls: home_row_mod_left_shift {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOME_ROW_MOD_LEFT_SHIFT";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <HM_TAPPING_TERM_FAST>;
@@ -59,7 +55,6 @@
 
     hrmrs: home_row_mod_right_shift {
         compatible = "zmk,behavior-hold-tap";
-        label = "HOME_ROW_MOD_RIGHT_SHIFT";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <HM_TAPPING_TERM_FAST>;
@@ -70,7 +65,6 @@
 
     mqt: momentary-quick-tap {
         compatible = "zmk,behavior-hold-tap";
-        label = "MOMENTARY_QUICK_TAP";
         #binding-cells = <2>;
         flavor = "tap-preferred";
         tapping-term-ms = <200>;
@@ -81,7 +75,6 @@
 
     cwe: tap_dance_mod_tap {
         compatible = "zmk,behavior-tap-dance";
-        label = "CAPS-WORD-DOUBLE_TAP";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&kp ESC>, <&caps_word>;
@@ -91,7 +84,6 @@
 	// The remaining behaviors are for plain Engram
     sqt_lpar: single-quote-left-paren {
         compatible = "zmk,behavior-mod-morph";
-        label = "SINGLE_QUOTE_LEFT_PAREN";
         #binding-cells = <0>;
         bindings = <&kp SQT>, <&kp LPAR>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -100,7 +92,6 @@
 
     dqt_rpar: double-quote-right-paren {
         compatible = "zmk,behavior-mod-morph";
-        label = "DOUBLE_QUOTE_RIGHT_PAREN";
         #binding-cells = <0>;
         bindings = <&kp DQT>, <&kp RPAR>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -109,7 +100,6 @@
 
     cma_semi: comma-semicolon {
         compatible = "zmk,behavior-mod-morph";
-        label = "COMMA_SEMICOLON";
         #binding-cells = <0>;
         bindings = <&kp COMMA>, <&kp SEMI>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -118,7 +108,6 @@
 
     stop_colon: stop-colon {
         compatible = "zmk,behavior-mod-morph";
-        label = "STOP_COLON";
         #binding-cells = <0>;
         bindings = <&kp DOT>, <&kp COLON>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -127,7 +116,6 @@
 
     qmark_excl: questionmark-exclamation {
         compatible = "zmk,behavior-mod-morph";
-        label = "QUESTIONMARK_EXCLAMATION";
         #binding-cells = <0>;
         bindings = <&kp QMARK>, <&kp EXCL>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -136,7 +124,6 @@
 
     slsh: forward-and-backslash {
         compatible = "zmk,behavior-mod-morph";
-        label = "SLASHES";
         #binding-cells = <0>;
         bindings = <&kp FSLH>, <&kp BSLH>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -145,7 +132,6 @@
 
     hash_buck: pound-dollar {
         compatible = "zmk,behavior-mod-morph";
-        label = "HASH_BUCK";
         #binding-cells = <0>;
         bindings = <&kp POUND>, <&kp DOLLAR>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -154,7 +140,6 @@
 
     at_til: at-tilde {
         compatible = "zmk,behavior-mod-morph";
-        label = "AT_TILDE";
         #binding-cells = <0>;
         bindings = <&kp AT>, <&kp GRAVE>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -192,7 +177,6 @@
 		
 	#ifdef CONFIG_ENGRAMMER_BASE
 		engrammer_layer {
-			label = "ENGRAMMER";
 			bindings = < 
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
 	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
@@ -203,7 +187,6 @@
 		};
 	#elif CONFIG_ENGRAMMER_SHIFTED
 		engrammer_layer {
-			label = "ENGRAMMER_SHIFTED";
 			bindings = < 
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC													        &kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
 	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH													        &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
@@ -214,7 +197,6 @@
 		};
 	#else
 		qwerty_layer {
-			label = "QWERTY";
 			bindings = <
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
 	&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT  &kp RBKT   &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
@@ -227,7 +209,6 @@
 
     #ifdef CONFIG_ENGRAMMER_SHIFTED
 		nav_layer {
-			label = "NAV";
 			bindings = < 
 	&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11  &kp F12  &trans															            &trans &trans &trans &trans
 	&trans &kp EXCL &kp AT  &kp LBKT &kp RBKT  &bt BT_CLR   &bt BT_NXT  &kp HOME  &kp PG_DN &kp PG_UP  &kp END &trans &trans  &trans										            &trans &trans &trans &trans
