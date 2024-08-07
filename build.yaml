@@ -10,11 +10,23 @@
 #   - board: bdn9_rev2
 #   - board: nice_nano_v2
 #     shield: reviung41
+#   - board: nice_nano_v2
+#     shield: corne_left
+#     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
+#     artifact-name: corne_left_with_logging
 #
 ---
-# include:
-#   - board: nice_nano_v2
-#     shield: ak3
+include:
+  - board: nice_nano_v2
+    shield: ak3
+    artifact-name: ak3_qwerty
+  - board: nice_nano_v2
+    shield: ak3
+    cmake-args: -DENGRAMMER_BASE=1
+    artifact-name: ak3_engrammer
+  - board: nice_nano_v2
+    shield: ak3
+    cmake-args: -DENGRAMMER_SHIFTED=1
+    artifact-name: ak3_engrammer_shifted
 
-board: [ "nice_nano_v2" ]
-shield: [ "ak3" ]
+
