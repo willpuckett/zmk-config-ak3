@@ -3,6 +3,7 @@ if SHIELD_AK3
 		default "ak3"
 
 	config LAYOUT
+		int "Keyboard layout"
 		default 1
 endif
 
