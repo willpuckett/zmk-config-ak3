@@ -2,16 +2,7 @@ if SHIELD_AK3
 	config ZMK_KEYBOARD_NAME
 		default "ak3"
 
-	if CONFIG_ENGRAMMER_BASE
-		config ENGRAMMER_BASE
-			int "Engramer"
-			default 1
-	endif
-
-	if CONFIG_ENGRAMMER_SHIFTED
-		config ENGRAMMER_SHIFTED
-			int "Engrammer shifted"
-			default 1
-	endif
-
+	config LAYOUT
+		default 1
 endif
+
