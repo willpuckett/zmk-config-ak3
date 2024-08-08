@@ -4,13 +4,14 @@ if SHIELD_AK3
 
 	if CONFIG_ENGRAMMER_BASE
 		CONFIG ENGRAMMER_BASE
-			bool "ENGRAMMER_BASE"
+			int "Engramer"
+			default 1
 	endif
 
 	if CONFIG_ENGRAMMER_SHIFTED
 		CONFIG ENGRAMMER_SHIFTED
-			bool "ENGRAMMER_SHIFTED"
+			int "Engrammer shifted"
+			default 1
 	endif
 
 endif
-
