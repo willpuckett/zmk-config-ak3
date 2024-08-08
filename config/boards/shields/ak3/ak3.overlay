@@ -6,6 +6,14 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
+#ifndef LAYOUT
+    #define LAYOUT 1
+#endif
+
+#define QWERTY 1
+#define ENGRAMMER_BASE 2
+#define ENGRAMMER_SHIFTED 3
+
 sr: &pro_micro_spi {
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&pro_micro_spi_default>;

@@ -9,10 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define QWERTY 1
-#define ENGRAMMER_BASE 2
-#define ENGRAMMER_SHIFTED 3
-
 #define NAV_L 1
 
 #define KEYS_L 0 1 2 3 4 5 18 19 20 21 22 23 36 37 38 39 40 41 53 54 55 56 57 58  // left-hand keys
@@ -23,8 +19,6 @@
 #define HM_TAPPING_TERM 1000
 #define HM_TAPPING_TERM_FAST 200
 #define HM_TAPPING_TERM_QT 175
-
-printf("CONFIG_LAYOUT: %d\n", CONFIG_LAYOUT);
 
 / {
   behaviors {
@@ -181,7 +175,7 @@ printf("CONFIG_LAYOUT: %d\n", CONFIG_LAYOUT);
 	keymap {
 		compatible = "zmk,keymap";
 		
-	#if CONFIG_LAYOUT == ENGRAMMER_BASE
+	#if LAYOUT == ENGRAMMER_BASE
 		engrammer_layer {
 			bindings = < 
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
@@ -191,7 +185,7 @@ printf("CONFIG_LAYOUT: %d\n", CONFIG_LAYOUT);
 	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP         &kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
-	#elif CONFIG_LAYOUT == ENGRAMMER_SHIFTED
+	#elif LAYOUT == ENGRAMMER_SHIFTED
 		engrammer_layer {
 			bindings = < 
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC													        &kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
@@ -213,7 +207,7 @@ printf("CONFIG_LAYOUT: %d\n", CONFIG_LAYOUT);
 		};
 	#endif
 
-    #if CONFIG_LAYOUT == ENGRAMMER_SHIFTED
+    #if LAYOUT == ENGRAMMER_SHIFTED
 		nav_layer {
 			bindings = < 
 	&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11  &kp F12  &trans															            &trans &trans &trans &trans
