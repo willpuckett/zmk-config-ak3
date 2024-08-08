@@ -24,6 +24,8 @@
 #define HM_TAPPING_TERM_FAST 200
 #define HM_TAPPING_TERM_QT 175
 
+printf("CONFIG_LAYOUT: %d\n", CONFIG_LAYOUT);
+
 / {
   behaviors {
 
