@@ -3,13 +3,13 @@ if SHIELD_AK3
 		default "ak3"
 
 	if CONFIG_ENGRAMMER_BASE
-		CONFIG ENGRAMMER_BASE
+		config ENGRAMMER_BASE
 			int "Engramer"
 			default 1
 	endif
 
 	if CONFIG_ENGRAMMER_SHIFTED
-		CONFIG ENGRAMMER_SHIFTED
+		config ENGRAMMER_SHIFTED
 			int "Engrammer shifted"
 			default 1
 	endif
