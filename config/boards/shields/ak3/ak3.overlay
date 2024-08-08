@@ -5,6 +5,10 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #ifndef LAYOUT
     #define LAYOUT 1
@@ -13,6 +17,15 @@
 #define QWERTY 1
 #define ENGRAMMER_BASE 2
 #define ENGRAMMER_SHIFTED 3
+
+#define KEYS_L 0 1 2 3 4 5 18 19 20 21 22 23 36 37 38 39 40 41 53 54 55 56 57 58  // left-hand keys
+#define KEYS_R 6 7 8 9 10 11 12 13 24 25 26 27 28 29 30 31 42 43 44 45 46 47 48 59 60 61 62 63 64 // right-hand keys
+#define THUMBS 68 69 70 71 72 73 74 75 76 // thumb keys
+#define NP 14 15 16 17 32 33 34 35 49 50 51 52 65 66 67 77 78 79 // number pad keys
+
+#define HM_TAPPING_TERM 1000
+#define HM_TAPPING_TERM_FAST 200
+#define HM_TAPPING_TERM_QT 175
 
 sr: &pro_micro_spi {
     compatible = "nordic,nrf-spim";
@@ -115,4 +128,137 @@ RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) 
 		;
     };	
 
+    behaviors {
+
+        hrml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            hold-trigger-key-positions = < KEYS_R THUMBS NP>;
+            hold-trigger-on-release;
+            bindings = <&kp>, <&kp>;
+            };
+
+        hrmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            hold-trigger-key-positions = < KEYS_L THUMBS NP>;
+            hold-trigger-on-release;
+            bindings = <&kp>, <&kp>;
+            };
+
+        hrmls: home_row_mod_left_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick_tap_ms = <HM_TAPPING_TERM_QT>;
+            hold-trigger-key-positions = < KEYS_R THUMBS NP>;
+            bindings = <&kp>, <&kp>;
+            };
+
+        hrmrs: home_row_mod_right_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick_tap_ms = <HM_TAPPING_TERM_QT>;
+            hold-trigger-key-positions = < KEYS_L THUMBS NP>;
+            bindings = <&kp>, <&kp>;
+            };
+
+        mqt: momentary-quick-tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            global-quick-tap;
+            bindings = <&mo>, <&kp>;
+            };
+
+        cwe: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ESC>, <&caps_word>;
+            };
+
+
+        // The remaining behaviors are for plain Engram
+        sqt_lpar: single-quote-left-paren {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp LPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        dqt_rpar: double-quote-right-paren {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DQT>, <&kp RPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        cma_semi: comma-semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        stop_colon: stop-colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        qmark_excl: questionmark-exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp EXCL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        slsh: forward-and-backslash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp BSLH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        hash_buck: pound-dollar {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp POUND>, <&kp DOLLAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        at_til: at-tilde {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
+            };
+
+        // except this one, which is handy for js
+        ZMK_MACRO(af,
+            wait-ms = <30>;
+            tap-ms = <40>;
+            bindings = <&kp EQUAL  &kp GT>;
+        )
+
+        };
 };
