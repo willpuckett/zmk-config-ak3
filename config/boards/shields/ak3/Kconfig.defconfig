@@ -3,11 +3,13 @@ if SHIELD_AK3
 		default "ak3"
 
 	if CONFIG_ENGRAMMER_BASE
-		add_definitions( -DCONFIG_ENGRAMMER_BASE )
+		CONFIG ENGRAMMER_BASE
+			bool "ENGRAMMER_BASE"
 	endif
-	
+
 	if CONFIG_ENGRAMMER_SHIFTED
-		add_definitions( -DCONFIG_ENGRAMMER_SHIFTED )
+		CONFIG ENGRAMMER_SHIFTED
+			bool "ENGRAMMER_SHIFTED"
 	endif
 
 endif
