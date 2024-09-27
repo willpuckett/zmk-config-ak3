@@ -1,5 +1,7 @@
 # ZMK firmware for Apple Keyboard II.
 
+[![.github/workflows/build.yml](https://github.com/willpuckett/zmk-config-ak3/actions/workflows/build.yml/badge.svg)](https://github.com/willpuckett/zmk-config-ak3/actions/workflows/build.yml)
+
 ![AKIII](static/akiii.png)
 
 For most mechanical keyboard enthusiasts, the Apple Keyboard II is probably one of the most hated products ever made. It's rubber dome switches are known for their mushy-ness. It's a nostalgic keyboard for me though, and I wanted to bring some attention to it and modernize it a little bit.
