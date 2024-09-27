@@ -112,3 +112,31 @@ Double tap capswordesc to capitalize the next word.
 ## Schematic
 
 ![Schematic](/static/Schematic_AKIII_2024-07-25.svg)
+
+
+## Module
+
+This repository is configured as a ZMK module (I think). You should be able to add it to ZMK's `config/build.yaml` something like:
+
+```yaml
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    # Additional modules containing boards/shields/custom code can be listed here as well
+    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: willpuckett
+      url-base: https://github.com/willpuckett
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-config-ak3
+      remote: willpuckett
+      revision: main
+  self:
+    path: config
+```
+
+Doing this will allow you to use the 'ak3' shield without having to clone in the whole repo, and keep it up to date if it changes upstream (here). Download the [starter template](https://github.com/willpuckett/zmk-config-ak3/template.zip) pre-configured with the ak3 module to make your own keymap. Once you push it to your github account, it'll build the firmware and place it in an artifact in your workflow runs.

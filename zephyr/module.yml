@@ -1,0 +1,4 @@
+name: ak3
+build:
+  settings:
+    board_root: config

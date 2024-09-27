@@ -6,14 +6,6 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-#ifndef LAYOUT
-    #define LAYOUT 1
-#endif
-
-#define QWERTY 1
-#define ENGRAMMER_BASE 2
-#define ENGRAMMER_SHIFTED 3
-
 #define KEYS_L 0 1 2 3 4 5 18 19 20 21 22 23 36 37 38 39 40 41 53 54 55 56 57 58  // left-hand keys
 #define KEYS_R 6 7 8 9 10 11 12 13 24 25 26 27 28 29 30 31 42 43 44 45 46 47 48 59 60 61 62 63 64 // right-hand keys
 #define THUMBS 68 69 70 71 72 73 74 75 76 // thumb keys
@@ -62,7 +54,7 @@ sr: &pro_micro_spi {
         RC(8,1) RC(8,2) RC(8,3) RC(1,2) RC(1,6) RC(2,2) RC(7,2) RC(5,2) RC(1,1) RC(0,2) RC(6,2) RC(6,9) 
 		>;
 	};
-
+    // Combine matrix and direct GPIO for modifiers like the original
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
         label = "KSCAN0";

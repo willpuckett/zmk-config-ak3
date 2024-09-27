@@ -22,11 +22,11 @@ include:
     artifact-name: ak3_qwerty
   - board: nice_nano_v2
     shield: ak3
-    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DLAYOUT=2
+    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DLAYOUT=1
     artifact-name: ak3_engrammer
   - board: nice_nano_v2
     shield: ak3
-    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DLAYOUT=3
+    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DLAYOUT=2
     artifact-name: ak3_engrammer_shifted
 
 
