@@ -10,7 +10,7 @@ As I worked into this project, it seemed to make sense to build a new pcb that c
 
 This repo houses the firmware for the project. You can find it under [releases](https://github.com/willpuckett/zmk-config-ak3/releases/latest). 
 
-The pcb fabrication files are available in the [pcb directory](https://github.com/willpuckett/zmk-config-ak3/tree/main/pcb) of this repository. There are also a couple of extras from my [first run](https://www.etsy.com/listing/1768344309/ak3) available.
+The pcb fabrication files are available in the [pcb directory](https://github.com/willpuckett/zmk-config-ak3/tree/main/pcb) of this repository. There are also a couple of extras from my [first run](https://octule.com/listing/1768344309/ak3) available.
 
 ## Layout
 
