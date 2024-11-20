@@ -59,7 +59,7 @@ for i in $(seq 0 $((--length))); do
 
 done
 
-parallel {} ::: "${jobs[@]}"
+parallel {} > /dev/null ::: "${jobs[@]}"
 
 for a in "${!jobs[@]}"; do
     cp "build/$a/zephyr/zmk.uf2" "$out/$a.uf2"
