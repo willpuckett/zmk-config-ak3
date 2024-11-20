@@ -5,6 +5,8 @@ LAYOUTS=('qwerty' 'engrammer' 'engrammer_shifted')
 ZMK_KEYMAP="config/boards/shields/${PROJECT}/${PROJECT}.keymap"
 DTS_LAYOUT=(--dts-layout "config/boards/shields/${PROJECT}/${PROJECT}-layouts.dtsi")
 
+[[ -d .images ]] || mkdir .images
+
 # Iterate over array keys
 # https://devhints.io/bash#arrays
 for i in "${!LAYOUTS[@]}"; do
