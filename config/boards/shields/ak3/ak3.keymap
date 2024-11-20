@@ -21,145 +21,90 @@
 #define HM_RPI 150
 #define HM_RPI_FAST 50
 
-#define NAV_L 1
+#define NV 1
 
 / {
-	behaviors {
-
-	hrml: home_row_mod_left {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		flavor = "balanced";
-		tapping-term-ms = <HM_TAPPING_TERM>;
-		require-prior-idle-ms = <HM_RPI>;
-		hold-trigger-key-positions = < KEYS_R THUMBS NP>;
-		hold-trigger-on-release;
-		bindings = <&kp>, <&kp>;
-		};
-
-	hrmr: home_row_mod_right {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		flavor = "balanced";
-		tapping-term-ms = <HM_TAPPING_TERM>;
-		require-prior-idle-ms = <HM_RPI>;
-		hold-trigger-key-positions = < KEYS_L THUMBS NP>;
-		hold-trigger-on-release;
-		bindings = <&kp>, <&kp>;
-		};
-
-	hrmls: home_row_mod_left_shift {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		flavor = "balanced";
-		tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-		require-prior-idle-ms = <HM_RPI_FAST>;
-		hold-trigger-key-positions = < KEYS_R THUMBS NP>;
-		bindings = <&kp>, <&kp>;
-		hold-trigger-on-release;
-		};
-
-	hrmrs: home_row_mod_right_shift {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		flavor = "balanced";
-		tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-		require-prior-idle-ms = <HM_RPI_FAST>;
-		hold-trigger-key-positions = < KEYS_L THUMBS NP>;
-		bindings = <&kp>, <&kp>;
-		hold-trigger-on-release;
-		};
-
-	mqt: momentary-quick-tap {
-		compatible = "zmk,behavior-hold-tap";
-		#binding-cells = <2>;
-		flavor = "tap-preferred";
-		tapping-term-ms = <200>;
-		quick-tap-ms = <125>;
-		require-prior-idle-ms = <HM_RPI>;
-		bindings = <&mo>, <&kp>;
-		};
-
-	cwe: tap_dance_mod_tap {
-		compatible = "zmk,behavior-tap-dance";
-		#binding-cells = <0>;
-		tapping-term-ms = <200>;
-		bindings = <&kp ESC>, <&caps_word>;
-		};
-
-
-	// The remaining behaviors are for plain Engram
-	sqt_lpar: single-quote-left-paren {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp SQT>, <&kp LPAR>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	dqt_rpar: double-quote-right-paren {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp DQT>, <&kp RPAR>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	cma_semi: comma-semicolon {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp COMMA>, <&kp SEMI>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	stop_colon: stop-colon {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp DOT>, <&kp COLON>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	qmark_excl: questionmark-exclamation {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp QMARK>, <&kp EXCL>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	slsh: forward-and-backslash {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp FSLH>, <&kp BSLH>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	hash_buck: pound-dollar {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp POUND>, <&kp DOLLAR>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	at_til: at-tilde {
-		compatible = "zmk,behavior-mod-morph";
-		#binding-cells = <0>;
-		bindings = <&kp AT>, <&kp GRAVE>;
-		mods = <(MOD_LSFT|MOD_RSFT)>;
-		keep-mods = <(MOD_LALT|MOD_LCTL|MOD_LGUI|MOD_RALT|MOD_RGUI|MOD_RCTL)>;
-		};
-
-	// except this one, which is handy for js
-	ZMK_MACRO(af,
-		wait-ms = <30>;
-		tap-ms = <40>;
-		bindings = <&kp EQUAL  &kp GT>;
-	)
+	combos {
+        compatible = "zmk,combos";
+        combo_studio {
+            timeout-ms = <50>;
+            key-positions = <30 31>;
+			layers = <NV>;
+			require-prior-idle-ms = <200>;
+            bindings = <&studio_unlock>;
+        };
 	};
+	
+	behaviors {
+		hl: home_row_mod_left {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <HM_TAPPING_TERM>;
+			require-prior-idle-ms = <HM_RPI>;
+			hold-trigger-key-positions = < KEYS_R THUMBS NP>;
+			hold-trigger-on-release;
+			bindings = <&kp>, <&kp>;
+			};
+
+		hr: home_row_mod_right {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <HM_TAPPING_TERM>;
+			require-prior-idle-ms = <HM_RPI>;
+			hold-trigger-key-positions = < KEYS_L THUMBS NP>;
+			hold-trigger-on-release;
+			bindings = <&kp>, <&kp>;
+			};
+
+		hls: home_row_mod_left_shift {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+			require-prior-idle-ms = <HM_RPI_FAST>;
+			hold-trigger-key-positions = < KEYS_R THUMBS NP>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-on-release;
+			};
+
+		hrs: home_row_mod_right_shift {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+			require-prior-idle-ms = <HM_RPI_FAST>;
+			hold-trigger-key-positions = < KEYS_L THUMBS NP>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-on-release;
+			};
+
+		mqt: momentary-quick-tap {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "tap-preferred";
+			tapping-term-ms = <200>;
+			quick-tap-ms = <125>;
+			require-prior-idle-ms = <HM_RPI>;
+			bindings = <&mo>, <&kp>;
+			};
+
+		cwe: tap_dance_mod_tap {
+			compatible = "zmk,behavior-tap-dance";
+			#binding-cells = <0>;
+			tapping-term-ms = <200>;
+			bindings = <&kp ESC>, <&caps_word>;
+			};
+
+		// except this one, which is handy for js
+		ZMK_MACRO(af,
+			wait-ms = <30>;
+			tap-ms = <40>;
+			bindings = <&kp EQUAL  &kp GT>;
+		)
+	};
+
 //	M0487 Apple Standard Keyboard II
 //	                    +-------+
 //	                    | power |
@@ -184,19 +129,19 @@
 			bindings = < 
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
 	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
-	&mqt NAV_L CAPS  &kp C  &kp I  &kp E  &kp A  &kp COMMA &kp DOT &kp H &kp T  &kp S &kp N &mqt NAV_L Q &kp RET		&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&mqt NV CAPS  &kp C  &kp I  &kp E  &kp A  &kp COMMA &kp DOT &kp H &kp T  &kp S &kp N &mqt NV Q &kp RET				&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
 	&kp LSHFT &kp G  &kp X  &kp J  &kp K  &kp MINUS  &kp FSLH   &kp R   &kp M  &kp F      &kp P        &kp LSHFT		&kp KP_N1 &kp KP_N2 &kp KP_N3 
-	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP         &kp KP_N0 &kp KP_DOT &kp KP_ENTER
+	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP        &kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
 	#elif LAYOUT == ENGRAMMER_SHIFTED
 		engrammer_layer {
 			bindings = < 
-	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC													        &kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
-	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH													        &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
-	&mqt NAV_L CAPS &hrml LCTRL C &hrml LALT I &hrml LGUI E &hrmls LSHFT A &kp COMMA &kp DOT &hrmrs LSHFT H &hrmr RGUI T &hrmr RALT S &hrmr RCTRL N &mqt NAV_L Q &kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
-	&kp G      &kp X  &kp J  &kp K  &kp MINUS     &af     &kp FSLH   &kp R   &kp M  &kp F      &kp P       &kp G															&kp KP_N1 &kp KP_N2 &kp KP_N3 
-	&kp GLOBE &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       												    	&kp KP_N0 &kp KP_DOT &kp KP_ENTER
+	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC							&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
+	&kp TAB  &kp B  &kp Y  &kp O  &kp U  &kp SQT  &kp  SEMI &kp L &kp D  &kp W  &kp V  &kp Z &kp EQUAL  &kp BSLH							&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+	&mqt NV CAPS &hl LCTRL C &hl LALT I &hl LGUI E &hls LSHFT A &kp COMMA &kp DOT &hrs LSHFT H &hr RGUI T &hr RALT S &hr RCTRL N &mqt NV Q 	&kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&kp G      &kp X  &kp J  &kp K  &kp MINUS     &af     &kp FSLH   &kp R   &kp M  &kp F      &kp P       &kp G							&kp KP_N1 &kp KP_N2 &kp KP_N3 
+	&kp GLOBE &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       						&kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
 	#else
@@ -204,7 +149,7 @@
 			bindings = <
 	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS &kp EQUAL &kp BSPC		&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
 	&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp LBKT  &kp RBKT   &kp BSLH		&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
-	&mqt NAV_L CAPS  &kp A  &kp S &kp D &kp F &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI &mqt NAV_L SQT &kp RET		&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&mqt NV CAPS  &kp A  &kp S &kp D &kp F &kp G  &kp H  &kp J  &kp K  &kp L  &kp SEMI &mqt NV SQT &kp RET				&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
 	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH            &kp LSHFT		&kp KP_N1 &kp KP_N2 &kp KP_N3 
 	&kp LCTRL &kp LALT &kp LGUI             &kp SPACE              &kp ESC  &kp LEFT &kp RIGHT &kp DOWN   &kp UP        &kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
@@ -213,11 +158,11 @@
 
 		nav_layer {
 			bindings = < 
-	&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11  &kp F12  &trans															            &trans &trans &trans &trans
-	&trans &kp EXCL &kp AT  &kp LBKT &kp RBKT  &bt BT_CLR   &bt BT_NXT  &kp HOME  &kp PG_DN &kp PG_UP  &kp END &trans &trans  &trans										            &trans &trans &trans &trans
-	&trans &hrml LCTRL LPAR &hrml LALT RPAR &hrml LGUI LBRC &hrmls LSHFT RBRC  &af &out OUT_TOG &hrmrs LSHFT LARW &hrmr RGUI DARW &hrmr RALT UARW &hrmr RCTRL RARW  &trans  &trans    &trans &trans &trans &trans
-	&kp LT &kp SLASH  &kp EQUAL &kp GT &trans  &trans &kp LS(LG(Z))  &kp LG(Z)  &kp LG(X) &kp LG(C)  &kp LG(V)  &trans														    &trans &trans &trans 
-	&trans &trans &trans             &trans              &trans  &trans &trans &trans   &trans       												    	                    &trans &trans &trans
+	&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11  &kp F12  &trans															&trans &trans &trans &trans
+	&trans &kp EXCL &kp AT  &kp LBKT &kp RBKT  &bt BT_CLR   &bt BT_NXT  &kp HOME  &kp PG_DN &kp PG_UP  &kp END &trans &trans  &trans								&trans &trans &trans &trans
+	&trans &hl LCTRL LPAR &hl LALT RPAR &hl LGUI LBRC &hls LSHFT RBRC  &af &out OUT_TOG &hrs LSHFT LARW &hr RGUI DARW &hr RALT UARW &hr RCTRL RARW  &trans  &trans  &trans &trans &trans &trans
+	&kp LT &kp SLASH  &kp EQUAL &kp GT &trans  &trans &kp LS(LG(Z))  &kp LG(Z)  &kp LG(X) &kp LG(C)  &kp LG(V)  &trans												&trans &trans &trans 
+	&trans &trans &trans             &trans              &trans  &trans &trans &trans   &trans       												    	        &trans &trans &trans
 			>;
 		};
 	};
