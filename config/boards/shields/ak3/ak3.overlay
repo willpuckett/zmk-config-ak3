@@ -5,13 +5,14 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "ak3-layouts.dtsi"
 
 #define KEYS_L 0 1 2 3 4 5 18 19 20 21 22 23 36 37 38 39 40 41 53 54 55 56 57 58  // left-hand keys
 #define KEYS_R 6 7 8 9 10 11 12 13 24 25 26 27 28 29 30 31 42 43 44 45 46 47 48 59 60 61 62 63 64 // right-hand keys
 #define THUMBS 68 69 70 71 72 73 74 75 76 // thumb keys
 #define NP 14 15 16 17 32 33 34 35 49 50 51 52 65 66 67 77 78 79 // number pad keys
 
-#define HM_TAPPING_TERM 1000
+#define HM_TAPPING_TERM 280
 #define HM_TAPPING_TERM_FAST 200
 #define HM_TAPPING_TERM_QT 175
 
@@ -29,7 +30,6 @@ sr: &pro_micro_spi {
 		gpio-controller;
 		spi-max-frequency = <200000>;
 		reg = <0>;
-		label = "4HC595";
 		#gpio-cells = <2>;
 		ngpios = <8>;
     };
@@ -38,7 +38,7 @@ sr: &pro_micro_spi {
 / {
 	chosen {
 		zmk,kscan = &kscan0;
-		zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &default_layout;
 	};
 
 	default_transform: keymap_transform_0 {
@@ -57,7 +57,6 @@ sr: &pro_micro_spi {
     // Combine matrix and direct GPIO for modifiers like the original
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
-        label = "KSCAN0";
         rows = <9>;
         columns = <10>;
 
@@ -75,7 +74,6 @@ sr: &pro_micro_spi {
 
     kscan1: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "col2row";
         // Pins 7,13,14,16,19,20,21,22,23,24 are GPIO Columns
         col-gpios
@@ -105,7 +103,6 @@ sr: &pro_micro_spi {
 
     kscan2: kscan_direct {
         compatible = "zmk,kscan-gpio-direct";
-		label = "KSCAN";
         // Pins 8,9,10,11,12 are GPIO-direct pins active-low, pull high
 		input-gpios
 		= <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>

@@ -16,6 +16,11 @@
 #define ENGRAMMER_BASE 1
 #define ENGRAMMER_SHIFTED 2
 
+#define HM_TAPPING_TERM 280
+#define HM_TAPPING_TERM_FAST 200
+#define HM_RPI 150
+#define HM_RPI_FAST 50
+
 #define NAV_L 1
 
 / {
@@ -26,6 +31,7 @@
 		#binding-cells = <2>;
 		flavor = "balanced";
 		tapping-term-ms = <HM_TAPPING_TERM>;
+		require-prior-idle-ms = <HM_RPI>;
 		hold-trigger-key-positions = < KEYS_R THUMBS NP>;
 		hold-trigger-on-release;
 		bindings = <&kp>, <&kp>;
@@ -36,6 +42,7 @@
 		#binding-cells = <2>;
 		flavor = "balanced";
 		tapping-term-ms = <HM_TAPPING_TERM>;
+		require-prior-idle-ms = <HM_RPI>;
 		hold-trigger-key-positions = < KEYS_L THUMBS NP>;
 		hold-trigger-on-release;
 		bindings = <&kp>, <&kp>;
@@ -46,9 +53,10 @@
 		#binding-cells = <2>;
 		flavor = "balanced";
 		tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-		quick_tap_ms = <HM_TAPPING_TERM_QT>;
+		require-prior-idle-ms = <HM_RPI_FAST>;
 		hold-trigger-key-positions = < KEYS_R THUMBS NP>;
 		bindings = <&kp>, <&kp>;
+		hold-trigger-on-release;
 		};
 
 	hrmrs: home_row_mod_right_shift {
@@ -56,9 +64,10 @@
 		#binding-cells = <2>;
 		flavor = "balanced";
 		tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-		quick_tap_ms = <HM_TAPPING_TERM_QT>;
+		require-prior-idle-ms = <HM_RPI_FAST>;
 		hold-trigger-key-positions = < KEYS_L THUMBS NP>;
 		bindings = <&kp>, <&kp>;
+		hold-trigger-on-release;
 		};
 
 	mqt: momentary-quick-tap {
@@ -67,7 +76,7 @@
 		flavor = "tap-preferred";
 		tapping-term-ms = <200>;
 		quick-tap-ms = <125>;
-		global-quick-tap;
+		require-prior-idle-ms = <HM_RPI>;
 		bindings = <&mo>, <&kp>;
 		};
 
