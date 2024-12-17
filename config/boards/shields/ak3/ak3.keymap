@@ -15,6 +15,7 @@
 #define QWERTY 0
 #define ENGRAMMER_BASE 1
 #define ENGRAMMER_SHIFTED 2
+#define CASTER 3
 
 #define HM_TAPPING_TERM 280
 #define HM_TAPPING_TERM_FAST 200
@@ -142,6 +143,16 @@
 	&mqt NV CAPS &hl LCTRL C &hl LALT I &hl LGUI E &hls LSHFT A &kp COMMA &kp DOT &hrs LSHFT H &hr RGUI T &hr RALT S &hr RCTRL N &mqt NV Q 	&kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
 	&kp G      &kp X  &kp J  &kp K  &kp MINUS     &af     &kp FSLH   &kp R   &kp M  &kp F      &kp P       &kp G							&kp KP_N1 &kp KP_N2 &kp KP_N3 
 	&kp GLOBE &cwe   &kp BSPC             &kp SPACE              &kp RET  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       						&kp KP_N0 &kp KP_DOT &kp KP_ENTER
+			>;
+		};
+	#elif LAYOUT == CASTER
+		caster_layer {
+			bindings = < 
+	&kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp LBKT  &kp RBKT  &kp BSPC							&kp KP_CLEAR &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY
+	&kp TAB  &kp B  &kp F  &kp D  &kp L  &kp X  &kp SEMI &kp P &kp O  &kp U  &kp Y  &kp Z &kp EQUAL  &kp BSLH							&kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS
+	&mqt NV CAPS &hl LCTRL C &hl LALT S &hl LGUI T &hls LSHFT R &kp MINUS &kp FSLH &hrs LSHFT N &hr RGUI A &hr RALT I &hr RCTRL H &mqt NV Q &kp RET	&kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS
+	&kp V      &kp W  &kp G  &kp M  &kp J &kp V &kp E  &kp K   &kp COMMA  &kp DOT      &kp SQT       &kp V							&kp KP_N1 &kp KP_N2 &kp KP_N3 
+	&kp GLOBE &cwe   &kp SPACE             &kp E              &kp ESC  &kp LEFT &kp DOWN &kp UP   &kp RIGHT       						&kp KP_N0 &kp KP_DOT &kp KP_ENTER
 			>;
 		};
 	#else
